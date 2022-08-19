@@ -1,6 +1,6 @@
 //(1) Create an array called ages that contains the following values: 3, 9, 23, 64, 2, 8, 28, 93.
 let ages = [3,9,23,64,2,8,28,93];
-//ages.push(23);
+ages.push(23);
 console.log(ages);
 
 //(1a) Programatically subtract the value of the first elmenet in the array from the value in the lst element of the array. Print the result. 
@@ -9,9 +9,10 @@ console.log(difference);
 //(1b) Add a new age to your array and repeat the step above to ensure it is dynamic. 
 console.log(difference);
 //(1c) Use a loop to iterate through the array and calculate the average age. Print the result. 
-let sum = ages.reduce(function (accumulator, currentValue){
-    return (accumulator + currentValue);
-});
+var sum = 0;
+for (var i = 0; i < ages.length; i++) {
+    sum += ages[i];
+}
 console.log(sum/ages.length);
 
 //(2) Create an array called names that contains the following values: 'Sam', 'Tommy', 'Tim', 'Sally', 'Buck', 'Bob'.
@@ -21,24 +22,25 @@ console.log(names);
 let lengths = names.map(function (element) {
     return element.length
 });
-let nameSum = lengths.reduce(function (accumulator, currentValue){
-    return (accumulator + currentValue);
-});
+let nameSum = 0;
+for (var i = 0; i < lengths.length; i++) {
+    nameSum += lengths[i];
+};
 let nameAvg = (nameSum/names.length)
 console.log(nameAvg);
 //(2b) Use a loop to iterate throught the array again and concantenate all the names together, separated by spaces, and print the result to the console. 
 let nameString = names.join(' '); {
     console.log(nameString);
-}
+} //I don't know of a loop that would do this easier than just using the names.join function that I found on MDN. 
 //(5) Create a new array called nameLengths. Write a loop to iterate over the previously created names array and add the length of each name to the nameLengths array.
 let nameLengths = names.map(function(element) {
     return element.length
 })
-console.log(nameLengths);
+console.log(nameLengths); //Again, not sure if this counts as a loop, but I found this to be the best way to map this out. 
 //(6) Write a loop to iterate over the nameLengths array and calculate the sum of all the elements in the array. Print the result.
 let sumNew = nameLengths.reduce(function(accumulator, currentValue) {
     return (accumulator + currentValue);
-})
+}) //Here I felt that using the reduce function was more concise than trying to write a loop for the array. 
 console.log (sumNew);
 //(7) Write a function that takes two parameters, word and n, as arguments and returns the word concantenated to itself n number of times.
 function repeatWord (word, n) {
